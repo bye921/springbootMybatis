@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" />
+    <title>demo for jsprit</title>
+    <link rel="stylesheet" href="bootstrap-4.3.1/css/bootstrap.min.css" type="text/css" />
+    <script src="js/jquery/jquery-3.3.1.js" type="application/javascript" ></script>
+    <script src="bootstrap-4.3.1/js/bootstrap.min.js" type="application/javascript" ></script>
+</head>
+<body>
+    <form id="initForm" method="get" action="/getBest">
+        <div>
+            <h2>Vehicle information</h2>
+        </div>
+        <table id="vehicleTable" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>vehicleId</th>
+                    <th>vehicleType</th>
+                    <th>index</th>
+                    <th>capacity</th>
+                    <th>start location</th>
+                    <th>end location</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td th:text="${vehicle.vehicleId}"></td>
+                    <td th:text="${vehicle.vehicleType}"></td>
+                    <td th:text="${vehicle.index}"></td>
+                    <td th:text="${vehicle.capacity}"></td>
+                    <td th:text="${vehicle.start}"></td>
+                    <td th:text="${vehicle.end}"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div>
+            <h2>All goods information</h2>
+        </div>
+        <table id="goodsTable" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>goodsId</th>
+                    <th>pickup Location(X)</th>
+                    <th>pickup Location(Y)</th>
+                    <th>delivery Location(X)</th>
+                    <th>delivery Location(Y)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="goods:${goods}">
+                    <td th:text="${goods.goodsId}"></td>
+                    <td th:text="${goods.pickupLocationX}"></td>
+                    <td th:text="${goods.pickupLocationY}"></td>
+                    <td th:text="${goods.deliveryLocationX}"></td>
+                    <td th:text="${goods.deliveryLocationY}"></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="input-group-btn">
+            <button class="btn btn-primary" type="submit">Get Solutions</button>
+        </div>
+    </form>
+</body>
+</html>

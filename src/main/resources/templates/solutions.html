@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" />
+    <title>demo for jsprit</title>
+    <link rel="stylesheet" href="bootstrap-4.3.1/css/bootstrap.min.css" type="text/css" />
+    <script src="js/jquery/jquery-3.3.1.js" type="application/javascript" ></script>
+    <script src="bootstrap-4.3.1/js/bootstrap.min.js" type="application/javascript" ></script>
+</head>
+<body>
+    <form id="solutionForm" method="get">
+        <div>
+            <h2>The Best Solution</h2>
+        </div>
+        <table id="bestTable" class="table table-striped">
+            <thead>
+            <tr>
+                <th>solutionId</th>
+                <th>vehicleId</th>
+                <th>cost</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td th:text="${best.solutionId}"></td>
+                <td th:text="${best.vehicleId}"></td>
+                <td th:text="${best.cost}"></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div>
+            <h2>All Solutions</h2>
+        </div>
+        <table id="solutionsTable" class="table table-striped">
+            <thead>
+            <tr>
+                <th>solutionId</th>
+                <th>vehicleId</th>
+                <th>cost</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="solutions:${solutions}">
+                <td th:text="${solutions.solutionId}"></td>
+                <td th:text="${solutions.vehicleId}"></td>
+                <td th:text="${solutions.cost}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+</body>
+</html>
